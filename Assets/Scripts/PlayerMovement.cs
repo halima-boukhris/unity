@@ -4,6 +4,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
+    private int nbMaxJumpsAllowed = 2;
+    [SerializeField]
+    private int nbJumps = 0;
+
+    [SerializeField]
     private Rigidbody2D rb;
     [SerializeField]
     private int moveSpeed = 10;
@@ -21,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask listGroundLayers;
     private bool isGrounded;
+
+    private bool wasGrounded = false;
+
     private bool isFacingRight = true;
 
     private bool jumpRequested = false;
@@ -28,9 +36,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        
        rb.linearVelocity = new Vector2(
            rb.linearVelocityX,
            jumpForce);
+
+        nbJumps += 1;
     }
 
     
@@ -54,6 +65,18 @@ public class PlayerMovement : MonoBehaviour
          jumpReleased = false;
      }
      Flip();
+     
+     if (isGrounded)
+        {
+            nbJumps = 0;
+        }
+        
+    if (isGrounded && !wasGrounded)
+        {
+            nbJumps = 0;
+        }
+ 
+        wasGrounded = isGrounded;
 
     }
 
@@ -78,6 +101,15 @@ public class PlayerMovement : MonoBehaviour
         jumpRequested = false;
         jumpReleased = false;
         Flip();
+
+        if (
+            nbJumps < nbMaxJumpsAllowed &&
+            jumpRequested
+        )
+        {
+            Jump();
+        }
+
     }
 
 
