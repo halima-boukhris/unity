@@ -25,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private LayerMask listGroundLayers;
+
+    [SerializeField]
+    private Animator animator;
+
+
     private bool isGrounded;
 
     private bool wasGrounded = false;
@@ -36,47 +41,57 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        
-       rb.linearVelocity = new Vector2(
-           rb.linearVelocityX,
-           jumpForce);
+
+        rb.linearVelocity = new Vector2(
+            rb.linearVelocityX,
+            jumpForce);
 
         nbJumps += 1;
     }
 
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-     moveDirectionX = Input.GetAxisRaw("Horizontal");   
-     if (Input.GetButtonDown("Jump"))
-     {
-         jumpRequested = true;
-     }
+        moveDirectionX = Input.GetAxisRaw("Horizontal");
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpRequested = true;
+        }
 
-     if (Input.GetButtonUp("Jump"))
-     {
-         jumpReleased = false;
-     }
-     Flip();
-     
-     if (isGrounded)
+        if (Input.GetButtonUp("Jump"))
+        {
+            jumpReleased = false;
+        }
+        Flip();
+
+        if (isGrounded)
         {
             nbJumps = 0;
         }
-        
-    if (isGrounded && !wasGrounded)
+
+        if (isGrounded && !wasGrounded)
         {
             nbJumps = 0;
         }
- 
+
+        Animations();
+
         wasGrounded = isGrounded;
+
+    }
+
+    void Animations()
+    {
+        animator.SetFloat("VelocityX", Mathf.Abs(rb.linearVelocityX));
+        animator.SetFloat("VelocityY", rb.linearVelocityY);
+        animator.SetBool("IsGrounded", isGrounded);
 
     }
 
@@ -126,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         rb.linearVelocity = new Vector2(
-            moveDirectionX * moveSpeed, 
+            moveDirectionX * moveSpeed,
             rb.linearVelocityY);
 
         Debug.Log(rb.linearVelocity);
@@ -142,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (moveDirectionX > 0 && !isFacingRight || 
+        if (moveDirectionX > 0 && !isFacingRight ||
             moveDirectionX < 0 && isFacingRight)
         {
             isFacingRight = !isFacingRight;
