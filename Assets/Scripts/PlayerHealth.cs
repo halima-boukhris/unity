@@ -11,5 +11,15 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI currentLifePointsText;
 
+    public void TakeDamage()
+    {
+        currentLifePoints = Mathf.Clamp(
+            currentLifePoints - 1,
+            0,
+            maxLifePoints
+        );
+        currentLifePointsText.SetText(currentLifePoints.ToString());
+    }
+
 }
  
