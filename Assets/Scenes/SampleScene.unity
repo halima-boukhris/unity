@@ -342,6 +342,9 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 4
     m_NumAlphaKeys: 2
+  playerCurrentLifePoints: {fileID: 11400000, guid: e976a3fc75d8e473f97e77b33d68fa32, type: 2}
+  playerMaxLifePoints: {fileID: 11400000, guid: 9d749a5f60daf4901acffd3e6773899c, type: 2}
+  onPlayerTakeDamage: {fileID: 11400000, guid: 9d64372c6526a499ebf78f181c2e29bc, type: 2}
 --- !u!1 &393053834
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,6 +3145,18 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 146835283}
+    - target: {fileID: 2302794679415560034, guid: 7d6cd617f4f4d42b9ab0ae431449d735, type: 3}
+      propertyPath: onTakeDamage
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d64372c6526a499ebf78f181c2e29bc, type: 2}
+    - target: {fileID: 2302794679415560034, guid: 7d6cd617f4f4d42b9ab0ae431449d735, type: 3}
+      propertyPath: maxLifePoints
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d749a5f60daf4901acffd3e6773899c, type: 2}
+    - target: {fileID: 2302794679415560034, guid: 7d6cd617f4f4d42b9ab0ae431449d735, type: 3}
+      propertyPath: currentLifePoints
+      value: 
+      objectReference: {fileID: 11400000, guid: e976a3fc75d8e473f97e77b33d68fa32, type: 2}
     - target: {fileID: 2302794679415560034, guid: 7d6cd617f4f4d42b9ab0ae431449d735, type: 3}
       propertyPath: currentLifePointsText
       value: 
