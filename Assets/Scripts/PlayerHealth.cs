@@ -12,9 +12,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private VoidEventChannel onTakeDamage;
 
-    [SerializeField]
-    private TextMeshProUGUI currentLifePointsText;
-
 
 
     [SerializeField]

@@ -227,10 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e2f4f9edd81407b8d7f192dbd89616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  currentLifePoints: 4
-  maxLifePoints: 4
+  currentLifePoints: {fileID: 11400000, guid: e976a3fc75d8e473f97e77b33d68fa32, type: 2}
+  maxLifePoints: {fileID: 11400000, guid: 9d749a5f60daf4901acffd3e6773899c, type: 2}
+  onTakeDamage: {fileID: 11400000, guid: 9d64372c6526a499ebf78f181c2e29bc, type: 2}
   currentLifePointsText: {fileID: 0}
-  healthBar: {fileID: 0}
   sr: {fileID: 7615863397683537629}
 --- !u!1 &5970174273160877430
 GameObject:

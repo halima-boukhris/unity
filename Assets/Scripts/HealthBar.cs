@@ -21,6 +21,7 @@ public class HealthBar : MonoBehaviour
     private void OnEnable()
     {
         onPlayerTakeDamage.OnEventRaised += SetHealth; //permet de s'abonner à l'événement de prise de dégâts du joueur
+            SetHealth(); //permet de mettre à jour la barre de vie au moment où le script est activé
     }
 
     private void OnDisable()

@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 450285154}
   - component: {fileID: 450285153}
   - component: {fileID: 450285152}
+  - component: {fileID: 450285156}
   m_Layer: 5
   m_Name: HealthCounter
   m_TagString: Untagged
@@ -581,6 +582,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &450285156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450285151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbe36927049cb44ebba18c779706b60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthCounter
+  healthText: {fileID: 762975822}
+  playerCurrentLifePoints: {fileID: 11400000, guid: e976a3fc75d8e473f97e77b33d68fa32, type: 2}
+  playerMaxLifePoints: {fileID: 11400000, guid: 9d749a5f60daf4901acffd3e6773899c, type: 2}
+  onPlayerTakeDamage: {fileID: 11400000, guid: 9d64372c6526a499ebf78f181c2e29bc, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
